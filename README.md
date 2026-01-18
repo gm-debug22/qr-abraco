@@ -1,2 +1,3 @@
-# qr-abraco
-Página com mensagens sequenciais acessadas via QR Code para grupo de jovens.
+# QR Abraço
+
+Página usada em dinâmica de grupo de jovens para exibir mensagens sequenciais via QR Code.
