@@ -6,7 +6,7 @@
 
   <style>
     body {
-      background: #f6f1e8; /* bege suave */
+      background: #f6f1e8;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -21,8 +21,8 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      opacity: 0.07;
-      max-width: 420px;
+      opacity: 0.06;
+      max-width: 480px;
       pointer-events: none;
       z-index: 0;
     }
@@ -30,41 +30,41 @@
     .container {
       position: relative;
       text-align: center;
-      max-width: 720px;
-      padding: 24px;
+      max-width: 760px;
+      padding: 28px;
       z-index: 1;
-      animation: fadeIn 1.8s ease-out;
+      animation: fadeIn 2s ease-out;
     }
 
     .logo {
-      max-width: 240px;
-      margin-bottom: 32px;
+      max-width: 260px;
+      margin-bottom: 36px;
     }
 
     .frase {
       font-family: Georgia, "Times New Roman", serif;
-      line-height: 1.45;
+      line-height: 1.5;
     }
 
     .convite {
       display: block;
-      font-size: 2rem;
+      font-size: 2.4rem; /* MAIOR */
       font-weight: bold;
-      color: #f2b01e; /* dourado do logo */
-      margin-bottom: 12px;
+      color: #f2b01e;
+      margin-bottom: 16px;
     }
 
     .complemento {
       display: block;
-      font-size: 1.6rem;
+      font-size: 1.9rem; /* MAIOR */
       color: #333;
     }
 
-    /* Animação fade-in lenta */
+    /* Fade-in lento */
     @keyframes fadeIn {
       from {
         opacity: 0;
-        transform: translateY(10px);
+        transform: translateY(14px);
       }
       to {
         opacity: 1;
@@ -72,21 +72,22 @@
       }
     }
 
+    /* Ajuste forte para celular */
     @media (max-width: 480px) {
       .convite {
-        font-size: 1.7rem;
+        font-size: 2.1rem;
       }
 
       .complemento {
-        font-size: 1.4rem;
+        font-size: 1.7rem;
       }
 
       .logo {
-        max-width: 200px;
+        max-width: 220px;
       }
 
       .watermark {
-        max-width: 300px;
+        max-width: 340px;
       }
     }
   </style>
@@ -94,10 +95,10 @@
 <body>
 
 <!-- Marca d'água -->
-<img src="logo.png" alt="" class="watermark">
+<img src="logo.jpg" alt="" class="watermark">
 
 <div class="container">
-  <img src="logo.png" alt="Logo do grupo" class="logo">
+  <img src="logo.jpg" alt="Logo do grupo" class="logo">
 
   <div class="frase" id="frase"></div>
 </div>
