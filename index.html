@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Grupo de Jovens</title>
+
+  <style>
+    body {
+      background: #f6f1e8; /* bege suave */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      overflow: hidden;
+    }
+
+    /* Marca d'água */
+    .watermark {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      opacity: 0.07;
+      max-width: 420px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .container {
+      position: relative;
+      text-align: center;
+      max-width: 720px;
+      padding: 24px;
+      z-index: 1;
+      animation: fadeIn 1.8s ease-out;
+    }
+
+    .logo {
+      max-width: 240px;
+      margin-bottom: 32px;
+    }
+
+    .frase {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.45;
+    }
+
+    .convite {
+      display: block;
+      font-size: 2rem;
+      font-weight: bold;
+      color: #f2b01e; /* dourado do logo */
+      margin-bottom: 12px;
+    }
+
+    .complemento {
+      display: block;
+      font-size: 1.6rem;
+      color: #333;
+    }
+
+    /* Animação fade-in lenta */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .convite {
+        font-size: 1.7rem;
+      }
+
+      .complemento {
+        font-size: 1.4rem;
+      }
+
+      .logo {
+        max-width: 200px;
+      }
+
+      .watermark {
+        max-width: 300px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Marca d'água -->
+<img src="logo.png" alt="" class="watermark">
+
+<div class="container">
+  <img src="logo.png" alt="Logo do grupo" class="logo">
+
+  <div class="frase" id="frase"></div>
+</div>
+
+<script>
+  const frases = [
+    ["Dê um abraço...", "em uma pessoa que te inspira"],
+    ["Dê um abraço...", "em uma pessoa que te ajuda no caminho da fé"],
+    ["Dê um abraço...", "em quem te transmite o amor de Deus"],
+    ["Dê um abraço...", "em quem te trouxe pra cá"],
+    ["Dê um abraço...", "em uma pessoa que tem o coração bonito"],
+    ["Dê um abraço...", "em quem te apresentou Jesus"],
+    ["Dê um abraço...", "em alguém que você é grato por ter em sua vida"],
+    ["Dê um abraço...", "na pessoa mais animada"],
+    ["Dê um abraço...", "em alguém que tem o sorriso contagiante"],
+    ["Dê um abraço...", "em alguém que é a prova viva do amor de Deus"],
+    ["Dê um abraço...", "em alguém que te lembra do amor de Jesus"]
+  ];
+
+  let indice = localStorage.getItem("indiceFrase");
+
+  if (indice === null) {
+    indice = 0;
+  } else {
+    indice = parseInt(indice);
+  }
+
+  document.getElementById("frase").innerHTML =
+    `<span class="convite">${frases[indice][0]}</span>
+     <span class="complemento">${frases[indice][1]}</span>`;
+
+  indice = (indice + 1) % frases.length;
+  localStorage.setItem("indiceFrase", indice);
+</script>
+
+</body>
+</html>
